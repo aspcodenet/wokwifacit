@@ -7,6 +7,9 @@
 #define BIT_FLIP(a,b) ((a) ^= (1ULL<<(b)))
 #define BIT_CHECK(a,b) (!!((a) & (1ULL<<(b)))) 
 
+
+//SETUP https://wokwi.com/projects/363071204090063873
+
 // B (digital pin 8 to 13)
 // C (analog input pins)
 // D (digital pins 0 to 7)
