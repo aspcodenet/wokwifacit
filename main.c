@@ -1,6 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdio.h>
+#include "lcd.h"
 
 #define BIT_SET(a, b) ((a) |= (1ULL << (b)))
 #define BIT_CLEAR(a,b) ((a) &= ~(1ULL<<(b)))
@@ -18,23 +19,18 @@
 
 int main(void)
 {
-    BIT_SET(DDRB,RED);
-    BIT_SET(DDRB,YELLOW);
-    BIT_SET(DDRB,GREEN);
-    while(1) {
-        BIT_SET(PORTB, RED);
-        BIT_CLEAR(PORTB, YELLOW);
-        BIT_CLEAR(PORTB, GREEN);
-		_delay_ms(15000);
-        BIT_CLEAR(PORTB, RED);
-        BIT_SET(PORTB, YELLOW);
-        BIT_CLEAR(PORTB, GREEN);
-		_delay_ms(3000);
-        BIT_CLEAR(PORTB, RED);
-        BIT_CLEAR(PORTB, YELLOW);
-        BIT_SET(PORTB, GREEN);
-		_delay_ms(15000);
 
-    }
+  lcd_init();
+  lcd_enable_blinking();
+  lcd_enable_cursor();
+  lcd_puts("Hej");
+
+  	// https://forum.arduino.cc/t/using-avr-internal-pull-up-for-push-button-controlling/327729/4
+	// https://www.hackster.io/Hack-star-Arduino/push-buttons-and-arduino-a-simple-guide-wokwi-simulator-c2281f
+
+
+    while(1) {
+     
+   }
 	return 0;
 }

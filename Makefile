@@ -16,7 +16,7 @@ BIN=exefile
 # OUT=${BIN}.elf ${BIN}.hex ${BIN}.lss
 OUT=${BIN}.hex
 
-SOURCES = main.c
+SOURCES = main.c lcd.c 
 
 OBJS = $(SOURCES:.c=.o)
 
